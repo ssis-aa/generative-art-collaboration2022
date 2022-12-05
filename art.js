@@ -3,6 +3,7 @@
 function setup() {
   createCanvas(1000, 500);
   background(220);
+  noStroke();
 
   // William: translation of geometric shapes in the right
   //          part of the image
@@ -25,5 +26,8 @@ function setup() {
 }
 
 function draw() {
-
+  fill(0);
+  x = random(0, width);
+  y = random(0, height);
+  ellipse(x, y, 1);
 }
