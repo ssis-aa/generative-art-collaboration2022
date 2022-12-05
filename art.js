@@ -33,6 +33,25 @@ function cubesection(){
   
   
   // Khang: using noise for the left part of the image
+  let x_coordinate = 500;
+  let plot_x = 0.0;
+  
+
+
+  function draw() {
+  beginShape()
+    x_noise = noise(x_coordinate) * 500;
+    strokeWeight(20);
+    point(plot_x, x_noise);
+    x_coordinate++;
+    if(plot_x >= 500){
+      noLoop()
+    }else{
+      console.log(plot_x)
+      plot_x++;
+    }
+    
+}
   
   
   
@@ -52,6 +71,4 @@ translate(-720/NUM_SECTIONS, 0);
   
 }
 
-function draw() {
 
-}
