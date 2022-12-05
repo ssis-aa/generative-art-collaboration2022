@@ -3,33 +3,43 @@
 // functions created for this project
 
 // William
-  function cubesection() {
-    fill(1);
-    square(150, -75, 50);
-    fill(1);
-    square(170, -145, 50);
-    fill(1);
-    square(160, -125, 50);
-    fill(1);
-    square(110, -125, 50);
-    fill(1);
-    square(112.5, -123.5, 45);
-    strokeWeight(4);
-    fill(1);
-    square(160, -200, 50);
-    strokeWeight(1);
-  }
-
+function cubesection() {
+  fill(1);
+  square(150, -75, 50);
+  fill(1);
+  square(170, -145, 50);
+  fill(1);
+  square(160, -125, 50);
+  fill(1);
+  square(110, -125, 50);
+  fill(1);
+  square(112.5, -123.5, 45);
+  strokeWeight(4);
+  fill(1);
+  square(160, -200, 50);
+  strokeWeight(1);
+}
 
 function setup() {
   createCanvas(1000, 500);
   background(220);
   noStroke();
 
+  // mk
+  // indicate right part with darker gray
+  fill(200);
+  rect(width/2, 0, width/2, height);
+  //just some random shapes to start with
+  fill(
+    Math.floor(random(0, 256)),
+    Math.floor(random(0, 256)),
+    Math.floor(random(0, 256))
+  );
+  square(random(30, 160) + width/2, random(20, 140), random(40, 150));
+
   // William: translation of geometric shapes in the right
   //          part of the image
   let NUM_SECTIONS = 10;
-
 
   for (var i = 0; i < NUM_SECTIONS; i++) {
     translate(0, 200);
@@ -60,6 +70,8 @@ function setup() {
   // Khang: using noise for the left part of the image
 
   // Dongjae: image manipulation of the whole created image
+
+  // Dan II: manipulate the whole image a second time
 }
 
 function draw() {
