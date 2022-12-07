@@ -4,20 +4,22 @@
 
 // William
 function cubesection() {
-  fill(1);
-  square(150, -75, 50);
-  fill(1);
-  square(170, -145, 50);
-  fill(1);
-  square(160, -125, 50);
-  fill(1);
-  square(110, -125, 50);
-  fill(1);
-  square(112.5, -123.5, 45);
+stroke(51);
+         fill (213,90,79)
+  square(750, -75, 50);
+              fill (0)
+  square(770, -145, 50);
+           fill (219,224,103)
+  square(760, -125, 50);
+            fill (0)
+  square(710, -125, 50);
+         fill (255)
+  square(712.5, -123.5, 45);
   strokeWeight(4);
-  fill(1);
-  square(160, -200, 50);
+     fill (0,0,0,1)
+  square(760, -200, 50);
   strokeWeight(1);
+  noStroke();
 }
 
 function setup() {
