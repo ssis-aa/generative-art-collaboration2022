@@ -41,14 +41,14 @@ function setup() {
   // mk
   // indicate right part with darker gray
   fill(200);
-  rect(width/2, 0, width/2, height);
+  rect(width / 2, 0, width / 2, height);
   //just some random shapes to start with
   fill(
     Math.floor(random(0, 256)),
     Math.floor(random(0, 256)),
     Math.floor(random(0, 256))
   );
-  square(random(30, 160) + width/2, random(20, 140), random(40, 150));
+  square(random(30, 160) + width / 2, random(20, 140), random(40, 150));
 
   // William: translation of geometric shapes in the right
   //          part of the image
@@ -88,9 +88,25 @@ function setup() {
 }
 
 function draw() {
+  // create some noise
   fill(0);
   x = random(0, width);
   y = random(0, height);
   ellipse(x, y, 1);
+  
+  // correct location for Khang's code: random numbers
+  let x_coordinate = 500;
+  let plot_x = 0.0;
+  beginShape();
+  x_noise = noise(x_coordinate) * 500;
+  strokeWeight(20);
+  point(plot_x, x_noise);
+  x_coordinate++;
+  if (plot_x >= 500) {
+    noLoop();
+  } else {
+    console.log(plot_x);
+    plot_x++;
+  }
 }
 ```
