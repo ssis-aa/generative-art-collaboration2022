@@ -68,10 +68,36 @@ function setup() {
   ];
 
   // Khang: using noise for the left part of the image
-
+  // correct location for Khang's code: random numbers
+  for (var plot_x = 0; plot_x < 500; plot_x++) {   
+    let x_coordinate = 500;
+    beginShape();
+    x_noise = noise(x_coordinate) * 500;
+    strokeWeight(20);
+    point(plot_x, x_noise);
+    x_coordinate++;
+    console.log(plot_x);
+  }  
+  
   // Dongjae: image manipulation of the whole created image
 
   // Dan II: manipulate the whole image a second time
+  
+  // Image manipulation 2022-12-07
+  // Dan
+  
+  
+  // Dongjae
+  
+  
+  
+  // Khang
+  
+  
+  // William
+  
+  
+  
 }
 
 function draw() {
@@ -80,19 +106,4 @@ function draw() {
   x = random(0, width);
   y = random(0, height);
   ellipse(x, y, 1);
-  
-  // correct location for Khang's code: random numbers
-  let x_coordinate = 500;
-  let plot_x = 0.0;
-  beginShape();
-  x_noise = noise(x_coordinate) * 500;
-  strokeWeight(20);
-  point(plot_x, x_noise);
-  x_coordinate++;
-  if (plot_x >= 500) {
-    noLoop();
-  } else {
-    console.log(plot_x);
-    plot_x++;
-  }
 }
