@@ -21,6 +21,10 @@ stroke(51);
   strokeWeight(1);
   noStroke();
 }
+ // Dan's Transparency 
+ let TRANSPARENCY = 1;
+
+
 
 function setup() {
   createCanvas(1000, 500);
@@ -53,7 +57,7 @@ function setup() {
   }
 
   // Dan: adding transparency to the right part
-  let TRANSPARENCY = 4;
+  
   var COLORS = [
     [216, 164, 127, TRANSPARENCY],
     [239, 131, 84, TRANSPARENCY],
@@ -67,7 +71,21 @@ function setup() {
     [181, 248, 254, TRANSPARENCY],
     [151, 249, 249, TRANSPARENCY],
     [164, 222, 249, TRANSPARENCY],
+    
+ 
+  
   ];
+  
+  let random_X = random(1000, 500)
+  let random_Y = random(1000, 500)
+  
+  function Cube(){
+    fill(COLORS);
+    square(random_X, random_Y, 50);
+  }
+  for (var k = 0; k < 20; k++){
+    Cube()
+  }
 
   // Khang: using noise for the left part of the image
   // correct location for Khang's code: random numbers
