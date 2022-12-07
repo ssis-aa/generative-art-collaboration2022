@@ -21,9 +21,9 @@ stroke(51);
   strokeWeight(1);
   noStroke();
 }
- // Dan's Transparency 
- let TRANSPARENCY = 1;
 
+// Dan's Transparency 
+let TRANSPARENCY = 1;
 
 
 function setup() {
@@ -71,9 +71,6 @@ function setup() {
     [181, 248, 254, TRANSPARENCY],
     [151, 249, 249, TRANSPARENCY],
     [164, 222, 249, TRANSPARENCY],
-    
- 
-  
   ];
   
   let random_X = random(1000, 500)
@@ -89,8 +86,8 @@ function setup() {
 
   // Khang: using noise for the left part of the image
   // correct location for Khang's code: random numbers
+  let x_coordinate = 500;         
   for (var plot_x = 0; plot_x < 500; plot_x++) {   
-    let x_coordinate = 500;
     beginShape();
     x_noise = noise(x_coordinate) * 500;
     strokeWeight(20);
