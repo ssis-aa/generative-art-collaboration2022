@@ -29,25 +29,6 @@ function cubesection() {
 // Dan's Transparency
 let TRANSPARENCY = 1;
 
-// mk rotate the image
-function rotate_canvas() {
-  buffer = createImage(width, height);
-  
-  // Copy from canvas into buffer
-//   buffer.copy(
-//     // source
-//     canvas,
-//     // source x, y, w, h
-//     0, 0, width, height,
-//     // destination x, y, w, h
-//     0, 0, buffer.width, buffer.height)
-
-//   angleMode(DEGREES);
-//   translate(width, height);
-//   rotate(180);
-//   image(buffer, 0, 0);
-}
-
 function setup() {
   createCanvas(ARTWIDTH, ARTHEIGHT);
   background(220);
@@ -69,14 +50,14 @@ function setup() {
   // translation of geometric shapes in the right part of the image
   let NUM_SECTIONS = 10;
 
-  for (var i = 0; i < NUM_SECTIONS; i++) {
-    translate(0, 200);
-    cubesection();
-    translate(200, 0);
-    cubesection();
-    translate(-200, 0);
-    translate(-720 / NUM_SECTIONS, 0);
-  }
+//   for (var i = 0; i < NUM_SECTIONS; i++) {
+//     translate(0, 200);
+//     cubesection();
+//     translate(200, 0);
+//     cubesection();
+//     translate(-200, 0);
+//     translate(-720 / NUM_SECTIONS, 0);
+//   }
 
   // Dan: adding transparency to the right part
 
@@ -123,26 +104,28 @@ function setup() {
   // Dan II: manipulate the whole image a second time
 
   // **************************************************************
-  // Image manipulation 2022-12-07
+  // Image manipulation 2022-12-09
   // mk rotate the image
-//   function rotate_canvas() {
-//     buffer = createImage(width, height);
+  function rotate_canvas() {
+    buffer = createImage(width, height);
 
-//     // Copy from canvas into buffer
-//     buffer.copy(
-//       // source
-//       canvas,
-//       // source x, y, w, h
-//       0, 0, width, height,
-//       // destination x, y, w, h
-//       0, 0, buffer.width, buffer.height)
+    // Copy from canvas into buffer
+    buffer.copy(
+      // source
+      canvas,
+      // source x, y, w, h
+      0, 0, width, height,
+      // destination x, y, w, h
+      0, 0, buffer.width, buffer.height)
 
-//     angleMode(DEGREES);
-//     translate(width, height);
-//     rotate(180);
-//     image(buffer, 0, 0);
-//   }  
+    angleMode(DEGREES);
+    translate(width, height);
+    rotate(180);
+    print("copy buffer back to canvas")
+    image(buffer, 0, 0);
+  }  
   rotate_canvas();
+  
   // Dan
 
   // Dongjae
