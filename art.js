@@ -51,10 +51,10 @@ function rotate_canvas() {
   rotate(180);    
 }  
 
-// --------------------------------- the creation of the image begins ------------------------------
+// ---------------------- the creation of the image begins --------------------
 
 function setup() {
-  let canvas = createCanvas(ARTWIDTH, ARTHEIGHT);
+  canvas = createCanvas(ARTWIDTH, ARTHEIGHT);
   background(220);
   noStroke();
 
