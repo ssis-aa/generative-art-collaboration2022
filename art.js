@@ -1,5 +1,8 @@
 // Generative art 2022
 
+ARTWIDTH = 1000
+ARTHEIGHT = 500
+
 // functions created for this project
 // William
 function cubesection() {
@@ -25,7 +28,7 @@ function cubesection() {
 let TRANSPARENCY = 1;
 
 function setup() {
-  createCanvas(1000, 500);
+  createCanvas(ARTWIDTH, ARTHEIGHT);
   background(220);
   noStroke();
 
