@@ -3,6 +3,8 @@
 ARTWIDTH = 1000
 ARTHEIGHT = 500
 
+let buffer;
+
 // functions created for this project
 // William
 function cubesection() {
@@ -26,6 +28,25 @@ function cubesection() {
 
 // Dan's Transparency
 let TRANSPARENCY = 1;
+
+// mk rotate the image
+function rotate_canvas() {
+  buffer = createImage(width, height);
+  
+  // Copy from canvas into buffer
+//   buffer.copy(
+//     // source
+//     canvas,
+//     // source x, y, w, h
+//     0, 0, width, height,
+//     // destination x, y, w, h
+//     0, 0, buffer.width, buffer.height)
+
+//   angleMode(DEGREES);
+//   translate(width, height);
+//   rotate(180);
+//   image(buffer, 0, 0);
+}
 
 function setup() {
   createCanvas(ARTWIDTH, ARTHEIGHT);
@@ -101,7 +122,27 @@ function setup() {
 
   // Dan II: manipulate the whole image a second time
 
+  // **************************************************************
   // Image manipulation 2022-12-07
+  // mk rotate the image
+//   function rotate_canvas() {
+//     buffer = createImage(width, height);
+
+//     // Copy from canvas into buffer
+//     buffer.copy(
+//       // source
+//       canvas,
+//       // source x, y, w, h
+//       0, 0, width, height,
+//       // destination x, y, w, h
+//       0, 0, buffer.width, buffer.height)
+
+//     angleMode(DEGREES);
+//     translate(width, height);
+//     rotate(180);
+//     image(buffer, 0, 0);
+//   }  
+  rotate_canvas();
   // Dan
 
   // Dongjae
