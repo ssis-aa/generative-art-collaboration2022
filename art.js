@@ -30,7 +30,7 @@ function cubesection() {
 let TRANSPARENCY = 1;
 
 function setup() {
-  createCanvas(ARTWIDTH, ARTHEIGHT);
+  let canvas = createCanvas(ARTWIDTH, ARTHEIGHT);
   background(220);
   noStroke();
 
@@ -38,13 +38,8 @@ function setup() {
   // indicate right part with darker gray
   fill(200);
   rect(width / 2, 0, width / 2, height);
-  //just some random shapes to start with
-  fill(
-    Math.floor(random(0, 256)),
-    Math.floor(random(0, 256)),
-    Math.floor(random(0, 256))
-  );
-  square(random(30, 160) + width / 2, random(20, 140), random(40, 150));
+  fill(71, 173, 204)
+  square(width / 2 + 50, 50, 100)
 
   // William: 
   // translation of geometric shapes in the right part of the image
