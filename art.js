@@ -1,9 +1,9 @@
-// Generative art 2022
+// Generative art in collaboration 2022
 
-ARTWIDTH = 600
+ARTWIDTH = 500
 ARTHEIGHT = 300
 
-let buffer;
+let canvas, buffer; // as global variables
 
 // functions created for this project
 // William
@@ -28,6 +28,30 @@ function cubesection() {
 
 // Dan's Transparency
 let TRANSPARENCY = 1;
+
+// mk rotate the canvas
+function rotate_canvas() {
+  buffer = createImage(ARTWIDTH, ARTHEIGHT);
+
+  // Copy from canvas into buffer
+  buffer.copy(
+    // source
+    canvas,
+    // source x, y, w, h
+    0, 0, canvas.width, canvas.height,
+    // destination x, y, w, h
+    0, 0, buffer.width, buffer.height)
+
+  angleMode(DEGREES);
+  translate(ARTWIDTH, ARTHEIGHT);
+  rotate(180);
+  image(buffer, 0, 0);
+  // back to normal - origin left bottom
+  translate(ARTWIDTH, ARTHEIGHT);
+  rotate(180);    
+}  
+
+// --------------------------------- the creation of the image begins ------------------------------
 
 function setup() {
   let canvas = createCanvas(ARTWIDTH, ARTHEIGHT);
@@ -101,26 +125,6 @@ function setup() {
   // **************************************************************
   // Image manipulation 2022-12-09
   // mk rotate the image
-  function rotate_canvas() {
-    buffer = createImage(width, height);
-
-    // Copy from canvas into buffer
-    buffer.copy(
-      // source
-      canvas,
-      // source x, y, w, h
-      0, 0, width, height,
-      // destination x, y, w, h
-      0, 0, buffer.width, buffer.height)
-
-    angleMode(DEGREES);
-    translate(width, height);
-    rotate(180);
-    image(buffer, 0, 0);
-    // back to normal - origin left bottom
-    translate(width, height);
-    rotate(180);    
-  }  
   rotate_canvas();
   
   // Dan
@@ -133,7 +137,7 @@ function setup() {
 }
 
 function draw() {
-  // create some noise
+  // continuously create some noise
   fill(0);
   x = random(0, width);
   y = random(0, height);
