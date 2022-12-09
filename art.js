@@ -1,7 +1,7 @@
 // Generative art 2022
 
-ARTWIDTH = 1000
-ARTHEIGHT = 500
+ARTWIDTH = 600
+ARTHEIGHT = 300
 
 let buffer;
 
@@ -39,7 +39,7 @@ function setup() {
   fill(200);
   rect(width / 2, 0, width / 2, height);
   fill(71, 173, 204)
-  square(width / 2 + 50, 50, 100)
+  square(width / 2 + 50, width / 4, height / 3)
 
   // William: 
   // translation of geometric shapes in the right part of the image
@@ -116,8 +116,10 @@ function setup() {
     angleMode(DEGREES);
     translate(width, height);
     rotate(180);
-    print("copy buffer back to canvas")
     image(buffer, 0, 0);
+    // back to normal - origin left bottom
+    translate(width, height);
+    rotate(180);    
   }  
   rotate_canvas();
   
