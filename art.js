@@ -5,6 +5,20 @@ ARTHEIGHT = 300
 
 let canvas, buffer; // as global variables
 
+TILEWIDTH  = 50
+TILEHEIGHT = TILEWIDTH
+
+function preload() {
+  example = loadImage('example.jpg')
+}
+
+// Created functions for this project
+// copy_to_buffer()    copies canvas to buffer
+// rotate_canvas()     rotates canvas by 180 degrees
+// mosaik()            splits canvas into tiles and shuffles them
+// fill_noise()        fills the canvas gradualy with black dots
+
+
 // functions created for this project
 // William
 function cubesection() {
@@ -29,19 +43,19 @@ function cubesection() {
 // Dan's Transparency
 let TRANSPARENCY = 1;
 
-// mk rotate the canvas
-function rotate_canvas() {
-  buffer = createImage(ARTWIDTH, ARTHEIGHT);
-
-  // Copy from canvas into buffer
+// mk copy canvas to buffer
+function copy_to_buffer() {
   buffer.copy(
     // source
     canvas,
     // source x, y, w, h
     0, 0, canvas.width, canvas.height,
     // destination x, y, w, h
-    0, 0, buffer.width, buffer.height)
-
+    0, 0, buffer.width, buffer.height)  
+}
+// mk rotate the canvas
+function rotate_canvas() {
+  copy_to_buffer();
   angleMode(DEGREES);
   translate(ARTWIDTH, ARTHEIGHT);
   rotate(180);
@@ -49,12 +63,48 @@ function rotate_canvas() {
   // back to normal - origin left bottom
   translate(ARTWIDTH, ARTHEIGHT);
   rotate(180);    
-}  
+} 
+// mk split canvas to mosaik tiles and shuffle them
+function mosaik() {
+  tile = [];
+  tilelist = [];
+  counter = 0;
+  for (var a = 0; a < ARTWIDTH / TILEWIDTH; a++) {
+    for (var b = 0; b < ARTHEIGHT / TILEHEIGHT; b++) {
+      tile.push([a * TILEWIDTH, b * TILEWIDTH]);
+      tilelist.push(counter);
+      counter++;
+    }
+  }
+  // shuffle tilelist
+  for (let i = tilelist.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [tilelist[i], tilelist[j]] = [tilelist[j], tilelist[i]];
+  }
+  for (let i = 0; i < tile.length; i++) {
+    buffer.copy(
+      canvas, 
+      tile[i][0], tile[i][1], 
+      TILEWIDTH, TILEHEIGHT, 
+      tile[tilelist[i]][0], tile[tilelist[i]][1], 
+      TILEWIDTH, TILEHEIGHT);
+  }
+  image(buffer, 0, 0)
+}
+// continuously create some noise
+function fill_noise() {
+  fill(0);
+  x = random(0, width);
+  y = random(0, height);
+  ellipse(x, y, 1);
+}
 
 // ---------------------- the creation of the image begins --------------------
 
 function setup() {
   canvas = createCanvas(ARTWIDTH, ARTHEIGHT);
+  buffer = createImage(ARTWIDTH, ARTHEIGHT);
+
   background(220);
   noStroke();
 
@@ -62,6 +112,7 @@ function setup() {
   // indicate right part with darker gray
   fill(200);
   rect(width / 2, 0, width / 2, height);
+  image(example, 10, 10, width - 20, height -20)
   fill(71, 173, 204)
   square(width / 2 + 50, width / 4, height / 3)
 
@@ -124,8 +175,9 @@ function setup() {
 
   // **************************************************************
   // Image manipulation 2022-12-09
-  // mk rotate the image
+  // mk rotate the image and shuffle it in a mosaic
   rotate_canvas();
+  mosaik();
   
   // Dan
 
@@ -137,9 +189,5 @@ function setup() {
 }
 
 function draw() {
-  // continuously create some noise
-  fill(0);
-  x = random(0, width);
-  y = random(0, height);
-  ellipse(x, y, 1);
+  fill_noise();
 }
