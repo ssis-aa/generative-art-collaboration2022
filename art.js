@@ -25,18 +25,18 @@ TILEHEIGHT = TILEWIDTH
 function cubesection() {
   stroke(51);
   fill(213, 90, 79);
-  square(750, -75, 50);
+  square(ARTWIDTH-150, -75, 50);
   fill(0);
-  square(770, -145, 50);
+  square(ARTWIDTH-170, -145, 50);
   fill(219, 224, 103);
-  square(760, -125, 50);
+  square(ARTWIDTH-160, -125, 50);
   fill(0);
-  square(710, -125, 50);
+  square(ARTWIDTH-110, -125, 50);
   fill(255);
-  square(712.5, -123.5, 45);
+  square(ARTWIDTH-112.5, -123.5, 45);
   strokeWeight(4);
   fill(0, 0, 0, 1);
-  square(760, -200, 50);
+  square(ARTWIDTH-160, -200, 50);
   strokeWeight(1);
   noStroke();
 }
@@ -133,14 +133,16 @@ function setup() {
   // translation of geometric shapes in the right part of the image
   let NUM_SECTIONS = 10;
 
-//   for (var i = 0; i < NUM_SECTIONS; i++) {
-//     translate(0, 200);
-//     cubesection();
-//     translate(200, 0);
-//     cubesection();
-//     translate(-200, 0);
-//     translate(-720 / NUM_SECTIONS, 0);
-//   }
+function CreateCSs(){
+   for (var i = 0; i < NUM_SECTIONS; i++) {
+     translate(0, 200);
+     cubesection();
+     translate(200, -200);
+     cubesection();
+     translate(-200, 0);
+    }
+}
+  CreateCSs()
 
   // Dan: adding transparency to the right part
 
