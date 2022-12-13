@@ -113,7 +113,7 @@ function setup() {
   // indicate right part with darker gray
   fill(200);
   rect(width / 2, 0, width / 2, height);
-  // image(example, 10, 10, width - 20, height -20)
+  image(example, 10, 10, width - 20, height -20)
   fill(71, 173, 204)
   square(width / 2 + 50, width / 4, height / 3)
 
