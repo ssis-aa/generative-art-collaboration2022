@@ -9,9 +9,9 @@ let canvas, buffer; // as global variables
 TILEWIDTH  = 50
 TILEHEIGHT = TILEWIDTH
 
-// function preload() {
-//   example = loadImage('example.jpg')
-// }
+function preload() {
+  example = loadImage('example.jpg')
+}
 
 // Created functions for this project
 // copy_to_buffer()    copies canvas to buffer
