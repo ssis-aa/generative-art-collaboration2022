@@ -1,13 +1,5 @@
 // Generative art in collaboration 2022
-
-// Code for Mosaic Dots
-
-// let example;
-
-// const columnWidth = (dotRadius) => dotRadius*3
-
-// const numberOfColumns = (dotRadius) => 
-// Math.ceil(width / columnWidth(dotRadius))
+// Version v0.4 from 2022-12-13
 
 ARTWIDTH = 500
 ARTHEIGHT = 300
@@ -17,9 +9,9 @@ let canvas, buffer; // as global variables
 TILEWIDTH  = 50
 TILEHEIGHT = TILEWIDTH
 
-function preload() {
-  example = loadImage('example.jpg')
-}
+// function preload() {
+//   example = loadImage('example.jpg')
+// }
 
 // Created functions for this project
 // copy_to_buffer()    copies canvas to buffer
@@ -85,7 +77,7 @@ function mosaik() {
       counter++;
     }
   }
-  // shuffle tilelist with Durstenfeld shuffle (optimized Fisher-Yates):
+  // shuffle tilelist
   for (let i = tilelist.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [tilelist[i], tilelist[j]] = [tilelist[j], tilelist[i]];
@@ -121,7 +113,7 @@ function setup() {
   // indicate right part with darker gray
   fill(200);
   rect(width / 2, 0, width / 2, height);
-  image(example, 10, 10, width - 20, height -20)
+  // image(example, 10, 10, width - 20, height -20)
   fill(71, 173, 204)
   square(width / 2 + 50, width / 4, height / 3)
 
@@ -179,7 +171,7 @@ function setup() {
   }
 
   // Dongjae: image manipulation of the whole created image
-  // noLoop()
+
   // Dan II: manipulate the whole image a second time
 
   // **************************************************************
@@ -190,6 +182,8 @@ function setup() {
   
   // Dan
 
+  // Dongjae
+
   // Khang
 
   // William
@@ -197,45 +191,4 @@ function setup() {
 
 function draw() {
   fill_noise();
-  //Dongjae
-  // drawMosaic(10, color(30, 30, 30))
-  
 }
-
-//Mosaic Drawing Code for Fun
-
-// function drawMosaic(dotRadius, backgroundColor){
-  
-//   background(backgroundColor)
-  
-//   for (let i = 0; i < numberOfColumns(dotRadius); i++){
-//     offsetX = i*columnWidth(dotRadius)
-//     drawColumnDots(dotRadius, offsetX)
-//   }
-// }
-
-// function drawColumnDots(dotRadius, offsetX){
-  
-//   let dotDiameter = 2*dotRadius
-  
-//   let doHeightWithPadding = dotDiameter + 2
-  
-//   let numDotsInColumn = Math.floor(height / doHeightWithPadding)
-  
-//   let topY = Math.floor(random(10))
-  
-//   for (let i = 0; i < numDotsInColumn; i++){
-//     let centerX = Math.floor(random(offsetX + dotRadius, offsetX + columnWidth(dotRadius) - dotRadius))
-    
-//   let centerY = topY + i * doHeightWithPadding + dotRadius
-  
-//   let dotColor = example.get(centerX, centerY)
-  
-//   noStroke()
-    
-//   fill(dotColor)
-  
-//   ellipse(centerX, centerY, dotDiameter, dotDiameter)
-    
-//   }
-// }
