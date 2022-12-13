@@ -1,4 +1,5 @@
 // Generative art in collaboration 2022
+// Version v0.4 from 2022-12-13
 
 ARTWIDTH = 500
 ARTHEIGHT = 300
