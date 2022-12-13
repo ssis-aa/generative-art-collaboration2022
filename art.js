@@ -100,6 +100,18 @@ function fill_noise() {
   ellipse(x, y, 1);
 }
 
+let x_coordinate = 500;
+let plot_x = 0;
+
+function khang(){
+    for(plot_x =0; plot_x <= ARTWIDTH/2; plot_x++){
+      x_noise = noise(x_coordinate) * ARTWIDTH/2;
+      strokeWeight(5);
+      point(plot_x, x_noise);
+      x_coordinate++;
+    }
+}
+
 // ---------------------- the creation of the image begins --------------------
 
 function setup() {
@@ -160,15 +172,7 @@ function setup() {
 
   // Khang: using noise for the left part of the image
   // correct location for Khang's code: random numbers
-  let x_coordinate = 500;
-  for (var plot_x = 0; plot_x < 500; plot_x++) {
-    beginShape();
-    x_noise = noise(x_coordinate) * 500;
-    strokeWeight(20);
-    point(plot_x, x_noise);
-    x_coordinate++;
-    console.log(plot_x);
-  }
+  khang()
 
   // Dongjae: image manipulation of the whole created image
 
