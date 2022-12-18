@@ -1,5 +1,5 @@
 // Generative art in collaboration 2022
-// Version v0.4 from 2022-12-13
+// Version v0.5 from 2022-12-19
 
 ARTWIDTH = 500
 ARTHEIGHT = 300
@@ -129,11 +129,18 @@ function setup() {
   fill(71, 173, 204)
   square(width / 2 + 50, width / 4, height / 3)
 
-  // William: 
+  // *******************************
+  // *                             *
+  // *  IMAGE CREATION by students *
+  // *                             *
+  // *         2022-11-25          *
+  // *******************************
+  //
+  // ################### William #######################
   // translation of geometric shapes in the right part of the image
   let NUM_SECTIONS = 10;
 
-function CreateCSs(){
+  function CreateCSs(){
    for (var i = 0; i < NUM_SECTIONS; i++) {
      translate(0, 200);
      cubesection();
@@ -141,12 +148,12 @@ function CreateCSs(){
      cubesection();
      translate(-200, 0);
     }
-}
+  }  
   CreateCSs()
 
-  // Dan: adding transparency to the right part
-
-
+  
+  // ################### Dan #######################
+  // adding transparency to the right part
   var COLORS = [
     [216, 164, 127, TRANSPARENCY],
     [239, 131, 84,  TRANSPARENCY],
@@ -165,7 +172,7 @@ function CreateCSs(){
   let random_X = random(ARTWIDTH/2, ARTWIDTH);
   let random_Y = random(0, ARTHEIGHT);
   let FILTERS = random([GRAY,  INVERT,  BLUR]);
-  print(FILTERS)
+  print("Appying filter:", FILTERS)
   function Cube() {
     fill(COLORS);
     square(random_X, random_Y, 50);
@@ -174,31 +181,37 @@ function CreateCSs(){
     Cube();
   }
   
-  
-  // Dan's Filter
-
-  // Khang: using noise for the left part of the image
-  // correct location for Khang's code: random numbers
+  // ################### Khang #######################
+  // using noise for the left part of the image
   khang()
 
-  // Dongjae: image manipulation of the whole created image
+  // ################### Dongjae #######################
+  //  image manipulation of the whole created image
 
-  // Dan II: manipulate the whole image a second time
 
   // **************************************************************
   // Image manipulation 2022-12-09
   // mk rotate the image and shuffle it in a mosaic
-  rotate_canvas();
-  mosaik();
+  // rotate_canvas();
+  // mosaik();
   
+
+  // ***********************************
+  // *                                 *
+  // *  IMAGE MANIPULATION by students *
+  // *                                 *
+  // *           2022-12-11            *
+  // ***********************************  
   // Dan
-    image(example, 0, 0);
-    filter(FILTERS);
+  // image(example, 0, 0);
+  filter(FILTERS);
+  
   // Dongjae
 
   // Khang
 
   // William
+
 }
 
 function draw() {
