@@ -9,9 +9,9 @@ let canvas, buffer; // as global variables
 TILEWIDTH  = 50
 TILEHEIGHT = TILEWIDTH
 
-// function preload() {
-//   example = loadImage('example.jpg')
-// }
+function preload() {
+  example = loadImage('example.jpg')
+}
 
 // Created functions for this project
 // copy_to_buffer()    copies canvas to buffer
@@ -125,7 +125,7 @@ function setup() {
   // indicate right part with darker gray
   fill(200);
   rect(width / 2, 0, width / 2, height);
-  // image(example, 10, 10, width - 20, height -20)
+  image(example, 10, 10, width - 20, height -20)
   fill(71, 173, 204)
   square(width / 2 + 50, width / 4, height / 3)
 
@@ -144,6 +144,7 @@ function setup() {
 
   // Dan: adding transparency to the right part
 
+
   var COLORS = [
     [216, 164, 127, TRANSPARENCY],
     [239, 131, 84,  TRANSPARENCY],
@@ -159,9 +160,10 @@ function setup() {
     [164, 222, 249, TRANSPARENCY],
   ];
 
-  let random_X = random(1000, 500);
-  let random_Y = random(1000, 500);
-
+  let random_X = random(ARTWIDTH/2, ARTWIDTH);
+  let random_Y = random(0, ARTHEIGHT);
+  let FILTERS = random([GRAY,  INVERT,  BLUR]);
+  print(FILTERS)
   function Cube() {
     fill(COLORS);
     square(random_X, random_Y, 50);
@@ -169,6 +171,9 @@ function setup() {
   for (var k = 0; k < 20; k++) {
     Cube();
   }
+  
+  
+  // Dan's Filter
 
   // Khang: using noise for the left part of the image
   // correct location for Khang's code: random numbers
@@ -185,7 +190,8 @@ function setup() {
   mosaik();
   
   // Dan
-
+    image(example, 0, 0);
+    filter(FILTERS);
   // Dongjae
 
   // Khang
