@@ -42,7 +42,7 @@ function cubesection() {
 }
 
 // Dan's Transparency
-let TRANSPARENCY = 1;
+let TRANSPARENCY = 150;
 
 // mk copy canvas to buffer
 function copy_to_buffer() {
@@ -169,16 +169,17 @@ function setup() {
     [164, 222, 249, TRANSPARENCY],
   ];
 
-  let random_X = random(ARTWIDTH/2, ARTWIDTH);
-  let random_Y = random(0, ARTHEIGHT);
+
   let FILTERS = random([GRAY,  INVERT,  BLUR]);
-  print("Appying filter:", FILTERS)
-  function Cube() {
-    fill(COLORS);
-    square(random_X, random_Y, 50);
-  }
-  for (var k = 0; k < 20; k++) {
-    Cube();
+  
+  for(var k = 0; k < 20; k++){
+    let random_X = random(ARTWIDTH/2, ARTWIDTH)
+    let random_Y = random(0, ARTHEIGHT)
+    print("Appying filter:", FILTERS);
+    let col = random(COLORS)
+    print(col)
+    fill(col)
+    square(random_X, random_Y, 50)
   }
   
   // ################### Khang #######################
@@ -209,6 +210,12 @@ function setup() {
   // Dongjae
 
   // Khang
+  //let changing_hue = random(0,255)
+  //print(changing_hue)
+  let random_tint = random(255)
+  tint(random_tint,0,0,50)
+  image(example, 10, 10, width, height)
+  
 
   // William
 
