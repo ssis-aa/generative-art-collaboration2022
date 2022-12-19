@@ -118,6 +118,8 @@ function setup() {
   canvas = createCanvas(ARTWIDTH, ARTHEIGHT);
   buffer = createImage(ARTWIDTH, ARTHEIGHT);
 
+     noLoop();
+  
   background(220);
   noStroke();
 
@@ -215,5 +217,51 @@ function setup() {
 }
 
 function draw() {
+  
+    //Dongjae
+ // drawMosaic(5, color(30, 30, 30))
+  
   fill_noise();
+}
+
+// Dongjae
+const columnWidth = (dotRadius) => dotRadius*3
+
+const numberOfColumns = (dotRadius) => 
+Math.ceil(width / columnWidth(dotRadius))
+
+function drawMosaic(dotRadius, backgroundColor){
+  
+  background(backgroundColor)
+  
+  for (let i = 0; i < numberOfColumns(dotRadius); i++){
+    offsetX = i*columnWidth(dotRadius)
+    drawColumnDots(dotRadius, offsetX)
+  }
+  
+  function drawColumnDots(dotRadius, offsetX){
+  copy_to_buffer()
+  let dotDiameter = 2*dotRadius
+  
+  let doHeightWithPadding = dotDiameter + 2
+  
+  let numDotsInColumn = Math.floor(height / doHeightWithPadding)
+  
+  let topY = Math.floor(random(10))
+  
+  for (let i = 0; i < numDotsInColumn; i++){
+    let centerX = Math.floor(random(offsetX + dotRadius, offsetX + columnWidth(dotRadius) - dotRadius))
+    
+  let centerY = topY + i * doHeightWithPadding + dotRadius
+  
+  let dotColor = example.get(centerX, centerY)
+  
+  noStroke()
+    
+  fill(dotColor)
+  
+  ellipse(centerX, centerY, dotDiameter, dotDiameter)
+    
+  }
+}
 }
