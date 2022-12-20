@@ -136,7 +136,7 @@ function setup() {
   // *         2022-11-25          *
   // *******************************
   //
-  // ################### William #######################
+  // ########################## William ################################
   // translation of geometric shapes in the right part of the image
   let NUM_SECTIONS = 10;
 
@@ -152,7 +152,7 @@ function setup() {
   CreateCSs()
 
   
-  // ################### Dan #######################
+  // ############################## Dan ###############################
   // adding transparency to the right part
   var COLORS = [
     [216, 164, 127, TRANSPARENCY],
@@ -182,11 +182,11 @@ function setup() {
     square(random_X, random_Y, 50)
   }
   
-  // ################### Khang #######################
+  // ########################## Khang ############################
   // using noise for the left part of the image
   khang()
 
-  // ################### Dongjae #######################
+  // ######################### Dongjae ###########################
   //  image manipulation of the whole created image
 
 
@@ -203,12 +203,45 @@ function setup() {
   // *                                 *
   // *           2022-12-11            *
   // ***********************************  
+  
+  
   // Dan
   // image(example, 0, 0);
   filter(FILTERS);
   
   // Dongjae
-
+  const columnWidth = (dotRadius) => dotRadius*3
+  const numberOfColumns = (dotRadius) =>  Math.ceil(width / columnWidth(dotRadius))
+  function drawMosaic(dotRadius, backgroundColor){
+    copy_to_buffer();
+    buffer.loadPixels();
+    background(backgroundColor)
+    for (let i = 0; i < numberOfColumns(dotRadius); i++){
+      offsetX = i*columnWidth(dotRadius)
+      drawColumnDots(dotRadius, offsetX)
+    }
+  }
+  function drawColumnDots(dotRadius, offsetX){
+    let dotColor;
+    let dotDiameter = 2*dotRadius
+    let doHeightWithPadding = dotDiameter + 2
+    let numDotsInColumn = Math.floor(height / doHeightWithPadding)
+    let topY = Math.floor(random(10))
+    for (let i = 0; i < numDotsInColumn; i++){
+      let centerX = Math.floor(random(offsetX + dotRadius, offsetX + columnWidth(dotRadius) - dotRadius))
+      let centerY = topY + i * doHeightWithPadding + dotRadius;
+      let index = (centerX + centerY * width) * 4;
+      dotColor = buffer.get(centerX, centerY);
+      // dotColor = example.get(centerX, centerY);
+      noStroke()
+      fill(dotColor)
+      ellipse(centerX, centerY, dotDiameter, dotDiameter)
+    }
+  }
+  copy_to_buffer();
+  buffer.loadPixels();
+  drawMosaic(5, color(30, 30, 30)); // radius, backgroundcolor
+  
   // Khang
 
   //let changing_hue = random(0,255)
