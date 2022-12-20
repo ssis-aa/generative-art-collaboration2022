@@ -210,6 +210,14 @@ function setup() {
   // Dongjae
 
   // Khang
+
+  //let changing_hue = random(0,255)
+  //print(changing_hue)
+  let random_tint = random(255)
+  tint(random_tint,0,0,50)
+  image(example, 10, 10, width, height)
+
+
   
 
   // William
