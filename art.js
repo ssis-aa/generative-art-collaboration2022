@@ -1,8 +1,8 @@
 // Generative art in collaboration 2022
-// Version v0.5 from 2022-12-19
+// Version v0.6 from 2022-12-21
 
-ARTWIDTH = 500
-ARTHEIGHT = 300
+ARTWIDTH = 600
+ARTHEIGHT = 400
 
 let canvas, buffer; // as global variables
 
