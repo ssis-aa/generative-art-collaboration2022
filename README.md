@@ -1,5 +1,8 @@
 # generative-art-collaboration2022
 
+[![GitHub release](https://img.shields.io/github/release/ssis-aa/generative-art-collaboration2022.svg)](https://GitHub.com/ssis-aa/generative-art-collaboration2022/releases/)
+[![MIT license](https://img.shields.io/github/license/ssis-aa/generative-art-collaboration2022)](https://ssis-aa.mit-license.org/)
+
 A design project by Dan, Dongjae, Khang and William. Created in December 2022 on https://p5js.org/
 
 Example code of the current state can be explored on [p5js.org](https://p5js.org/)
